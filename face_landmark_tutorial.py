@@ -45,10 +45,7 @@ while cap.isOpened():
     img_h, img_w, img_c = img.shape
 
     # 아무 얼굴도 감지되지 않은 경우
-    if results.multi_face_landmarks == None:
-        continue
-    else:
-        # 얼굴 랜드마크를 이미지 위에 그리기
+    if results.multi_face_landmarks != None:
         for face_landmarks in results.multi_face_landmarks:        
             mp.solutions.drawing_utils.draw_landmarks(image=img, landmark_list=face_landmarks, landmark_drawing_spec=drawing_specs)
             for idx, lm in enumerate(results.multi_face_landmarks[0].landmark):
@@ -56,10 +53,10 @@ while cap.isOpened():
                     nose_x = lm.x * img_w
                     nose_y = lm.y * img_h
 
-    # 코 위치 좌표를 왼쪽 위에 Text로 표시
-    text = "Nose: ({}, {})".format(int(nose_x), int(nose_y))
-    cv2.putText(img, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-    
+        # 코 위치 좌표를 왼쪽 위에 Text로 표시
+        text = "Nose: ({}, {})".format(int(nose_x), int(nose_y))
+        cv2.putText(img, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        
     # 이미지를 보여주기
     cv2.imshow('Face Mesh', img)
 

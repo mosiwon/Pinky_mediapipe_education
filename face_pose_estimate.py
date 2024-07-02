@@ -97,11 +97,11 @@ while(cap.isOpened()):
             img = draw_axes(img, pitch_pred, yaw_pred, roll_pred, nose_x, nose_y)
             
 
-        pitch_pred_deg = pitch_pred * 180
-        yaw_pred_deg = yaw_pred * 180
-        roll_pred_deg = roll_pred * 180
-        text = f"Pitch: {pitch_pred_deg:.2f}, Yaw: {yaw_pred_deg:.2f}, Roll: {roll_pred_deg:.2f}"
-        cv2.putText(img, text, (25, 75), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+            pitch_pred_deg = pitch_pred * 180
+            yaw_pred_deg = yaw_pred * 180
+            roll_pred_deg = roll_pred * 180
+            text = f"Pitch: {pitch_pred_deg:.2f}, Yaw: {yaw_pred_deg:.2f}, Roll: {roll_pred_deg:.2f}"
+            cv2.putText(img, text, (25, 75), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         cv2.imshow('img', img)
