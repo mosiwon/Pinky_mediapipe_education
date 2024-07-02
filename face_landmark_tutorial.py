@@ -4,7 +4,7 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 
-cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')) # for mac, WSL2
+# cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')) # for mac, WSL2
 
 def draw_axes(img, pitch, yaw, roll, tx, ty, size=50):
     yaw = -yaw
